@@ -110,6 +110,8 @@ function Expenses() {
               <option value="maintenance">Maintenance</option>
               <option value="insurance">Insurance</option>
               <option value="cosmetic">Cosmetic</option>
+              <option value="loan">Loan</option>
+              <option value="other">Other</option>
             </select>
           </div>
 
@@ -198,6 +200,8 @@ function Expenses() {
                       <option value="maintenance">Maintenance</option>
                       <option value="insurance">Insurance</option>
                       <option value="cosmetic">Cosmetic</option>
+                      <option value="loan">Loan</option>
+                      <option value="other">Other</option>
                     </select>
                   </td>
                   <td>

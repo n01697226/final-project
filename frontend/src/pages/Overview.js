@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import { apiGet } from "../api";
 
 function sumByCategory(items) {
-  var totals = { gas: 0, maintenance: 0, insurance: 0, cosmetic: 0 };
+  var totals = {
+    gas: 0,
+    maintenance: 0,
+    insurance: 0,
+    cosmetic: 0,
+    loan: 0,
+    other: 0,
+  };
   for (var i = 0; i < items.length; i++) {
     var it = items[i];
     if (totals[it.category] === undefined) {
@@ -71,6 +78,8 @@ function Overview() {
     totals.maintenance,
     totals.insurance,
     totals.cosmetic,
+    totals.loan,
+    totals.other,
     0
   );
 
@@ -103,6 +112,8 @@ function Overview() {
       <BarRow label="Maintenance" value={totals.maintenance} max={max} />
       <BarRow label="Insurance" value={totals.insurance} max={max} />
       <BarRow label="Cosmetic" value={totals.cosmetic} max={max} />
+      <BarRow label="Loan" value={totals.loan} max={max} />
+      <BarRow label="Other" value={totals.other} max={max} />
       <hr />
       <p>
         <b>Total:</b> ${totalAmount(totals).toFixed(2)}
