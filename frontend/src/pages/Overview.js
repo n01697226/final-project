@@ -60,9 +60,14 @@ function BarRow(props) {
 
 function Overview() {
   var [expenses, setExpenses] = useState([]);
+  var [vehicles, setVehicles] = useState([]);
   var [range, setRange] = useState("month");
+  var [selectedVehicleId, setSelectedVehicleId] = useState("");
 
   async function load() {
+    var vs = await apiGet("/vehicles");
+    setVehicles(Array.isArray(vs) ? vs : []);
+
     var ex = await apiGet("/expenses");
     setExpenses(Array.isArray(ex) ? ex : []);
   }
@@ -71,8 +76,13 @@ function Overview() {
     load();
   }, []);
 
-  var filtered = filterByRange(expenses, range);
-  var totals = sumByCategory(filtered);
+  var filteredExpenses = selectedVehicleId
+    ? expenses.filter((ex) => ex.vehicleId === selectedVehicleId)
+    : expenses;
+
+  var filteredByRange = filterByRange(filteredExpenses, range);
+  var totals = sumByCategory(filteredByRange);
+
   var max = Math.max(
     totals.gas,
     totals.maintenance,
@@ -92,6 +102,26 @@ function Overview() {
   return (
     <div className="card">
       <h2>Overview</h2>
+
+      {vehicles.length > 1 && (
+        <div className="btn-container">
+          <button
+            className={selectedVehicleId === "" ? "active" : ""}
+            onClick={() => setSelectedVehicleId("")}
+          >
+            All Cars
+          </button>
+          {vehicles.map((v) => (
+            <button
+              key={v._id}
+              className={selectedVehicleId === v._id ? "active" : ""}
+              onClick={() => setSelectedVehicleId(v._id)}
+            >
+              {v.make} {v.model} ({v.year})
+            </button>
+          ))}
+        </div>
+      )}
 
       <div style={{ marginBottom: 12 }}>
         <label>Range</label>

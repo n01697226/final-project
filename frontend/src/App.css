@@ -161,7 +161,7 @@ button.danger {
 }
 
 .table td button {
-  margin: 2px 0;
+  margin: 2px 10px;
   min-width: 70px;
   text-align: center;
 }
@@ -186,10 +186,10 @@ button.danger {
 }
 
 .btn-container {
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
-.btn-container button:first-of-type {
+.btn-container button {
   margin-right: 10px;
 }
 
