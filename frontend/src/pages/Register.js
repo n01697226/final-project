@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { apiPost } from "../api";
 
 function Register() {
@@ -25,6 +26,7 @@ function Register() {
   return (
     <div className="card">
       <h2>Register</h2>
+
       <form onSubmit={submit}>
         <label>Name</label>
         <input
@@ -33,6 +35,7 @@ function Register() {
             setName(e.target.value);
           }}
         />
+
         <label>Email</label>
         <input
           value={email}
@@ -40,6 +43,7 @@ function Register() {
             setEmail(e.target.value);
           }}
         />
+
         <label>Password</label>
         <input
           type="password"
@@ -48,11 +52,16 @@ function Register() {
             setPassword(e.target.value);
           }}
         />
+
         <div style={{ marginTop: 12 }}>
           <button type="submit">Register</button>
         </div>
-        {message ? <p>{message}</p> : null}
+        {message ? <p className="error-message">{message}</p> : null}
       </form>
+
+      <p>
+        Already have an account with us? <Link to="/login">Login here</Link>
+      </p>
     </div>
   );
 }

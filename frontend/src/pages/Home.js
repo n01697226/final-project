@@ -33,8 +33,10 @@ function Home() {
 
         <ul>
           <li>Register your vehicle (make, model, year)</li>
-          <li>Log expenses: gas, maintenance, insurance, cosmetic upgrades</li>
-          <li>View totals weekly, monthly, yearly on Overview</li>
+          <li>
+            Log expenses: Gas, Maintenance, Insurance, cosmetic upgrades, etc.
+          </li>
+          <li>View totals weekly, monthly, yearly in Overview dashboard.</li>
         </ul>
 
         <p className="info-badge">
@@ -86,7 +88,7 @@ function Home() {
           </Link>
 
           <Link to="/expenses">
-            <button>Go to Expenses</button>
+            <button>Manage Expenses</button>
           </Link>
         </div>
       </div>
