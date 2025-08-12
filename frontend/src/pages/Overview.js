@@ -20,25 +20,37 @@ function sumByCategory(items) {
   return totals;
 }
 
+function toLocalDateOnly(dateStr) {
+  if (!dateStr) return null;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+    var parts = dateStr.split("-").map(Number);
+    return new Date(parts[0], parts[1] - 1, parts[2]);
+  }
+  var d = new Date(dateStr);
+  if (isNaN(d.getTime())) return null;
+  return new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+}
+
 function filterByRange(items, type) {
   var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
   return items.filter(function (it) {
-    var d = new Date(it.date);
+    var expenseDate = toLocalDateOnly(it.date);
+    if (!expenseDate) return false;
+
     if (type === "week") {
-      var oneWeekAgo = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate() - 7
-      );
-      return d >= oneWeekAgo;
+      var oneWeekAgo = new Date(today);
+      oneWeekAgo.setDate(today.getDate() - 7);
+      return expenseDate >= oneWeekAgo && expenseDate <= today;
     }
     if (type === "month") {
-      var firstOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-      return d >= firstOfMonth;
+      var firstOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+      return expenseDate >= firstOfMonth && expenseDate <= today;
     }
     if (type === "year") {
-      var firstOfYear = new Date(now.getFullYear(), 0, 1);
-      return d >= firstOfYear;
+      var firstOfYear = new Date(today.getFullYear(), 0, 1);
+      return expenseDate >= firstOfYear && expenseDate <= today;
     }
     return true;
   });
@@ -77,7 +89,9 @@ function Overview() {
   }, []);
 
   var filteredExpenses = selectedVehicleId
-    ? expenses.filter((ex) => ex.vehicleId === selectedVehicleId)
+    ? expenses.filter(function (ex) {
+        return ex.vehicleId === selectedVehicleId;
+      })
     : expenses;
 
   var filteredByRange = filterByRange(filteredExpenses, range);
@@ -111,15 +125,17 @@ function Overview() {
           >
             All Cars
           </button>
-          {vehicles.map((v) => (
-            <button
-              key={v._id}
-              className={selectedVehicleId === v._id ? "active" : ""}
-              onClick={() => setSelectedVehicleId(v._id)}
-            >
-              {v.make} {v.model} ({v.year})
-            </button>
-          ))}
+          {vehicles.map(function (v) {
+            return (
+              <button
+                key={v._id}
+                className={selectedVehicleId === v._id ? "active" : ""}
+                onClick={() => setSelectedVehicleId(v._id)}
+              >
+                {v.make} {v.model} ({v.year})
+              </button>
+            );
+          })}
         </div>
       )}
 
