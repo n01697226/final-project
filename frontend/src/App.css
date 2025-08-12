@@ -8,10 +8,12 @@ body {
   background: #ece6f0;
   color: #3f3434;
 }
+
 a {
   color: #3f3434;
   text-decoration: none;
 }
+
 .app-wrap {
   min-height: 100vh;
 }
@@ -35,12 +37,15 @@ a {
   font-size: 30px;
   color: #473156;
 }
+
 .brand .auto {
   color: #d6bfa3;
 }
+
 .brand .track {
   color: #9f77bd;
 }
+
 .navlinks {
   display: flex;
   align-items: center;
@@ -85,6 +90,7 @@ h2 {
   margin: 6px 0 12px;
   color: #4a3d3d;
 }
+
 label {
   display: block;
   margin-bottom: 6px;
@@ -103,6 +109,7 @@ textarea {
   background: #fcf9f7;
   color: #3f3434;
 }
+
 input:focus,
 select:focus,
 textarea:focus {
@@ -110,6 +117,7 @@ textarea:focus {
   border-color: #9f77bd;
   background: #f1eaf6;
 }
+
 button {
   padding: 10px 14px;
   border-radius: 10px;
@@ -119,12 +127,15 @@ button {
   font-weight: 700;
   cursor: pointer;
 }
+
 button:hover {
   background: #8f69ab;
 }
+
 button.danger {
   background: #cc5c5c;
 }
+
 button.secondary {
   background: #bda388;
   color: #ffffff;
@@ -134,11 +145,17 @@ button.secondary:hover {
   background: #cbb59a;
 }
 
+/* Error message in forms */
+.error-message {
+  color: #cc5c5c;
+}
+
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
+
 .row3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -149,21 +166,25 @@ button.secondary:hover {
   width: 100%;
   border-collapse: collapse;
 }
+
 .table th,
 .table td {
   border-bottom: 1px solid #cdb7a3;
   padding: 10px;
   text-align: left;
 }
+
 .table td button {
   margin: 2px 0;
   min-width: 70px;
   text-align: center;
 }
+
 .table th {
   color: #6a5858;
   font-weight: 600;
 }
+
 .table tr:hover {
   background: #ece0f1;
 }
@@ -185,6 +206,7 @@ button.secondary:hover {
   position: relative;
   overflow: hidden;
 }
+
 .bar > span {
   display: block;
   height: 100%;

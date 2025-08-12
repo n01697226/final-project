@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { apiPost } from "../api";
 
 function Login(props) {
@@ -13,6 +14,7 @@ function Login(props) {
       email: email,
       password: password,
     });
+
     if (data && data.token) {
       props.onLoginSuccess(data.token, data.name);
     } else {
@@ -23,6 +25,7 @@ function Login(props) {
   return (
     <div className="card">
       <h2>Login</h2>
+
       <form onSubmit={submit}>
         <label>Email</label>
         <input
@@ -31,6 +34,7 @@ function Login(props) {
             setEmail(e.target.value);
           }}
         />
+
         <label>Password</label>
         <input
           type="password"
@@ -39,11 +43,17 @@ function Login(props) {
             setPassword(e.target.value);
           }}
         />
+
         <div style={{ marginTop: 12 }}>
           <button type="submit">Login</button>
         </div>
-        {message ? <p>{message}</p> : null}
+
+        {message ? <p className="error-message">{message}</p> : null}
       </form>
+
+      <p>
+        Don't have an account with us? <Link to="/register">Register here</Link>
+      </p>
     </div>
   );
 }
