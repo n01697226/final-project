@@ -1,5 +1,5 @@
 // const API_BASE = "http://localhost:5000/api";
-const API_BASE = "https://final-project-i91j.vercel.app/";
+const API_BASE = "https://final-project-i91j.vercel.app/api";
 
 function getToken() {
   try {
