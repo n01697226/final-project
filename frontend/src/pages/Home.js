@@ -30,12 +30,14 @@ function Home() {
           Track your vehicle expenses by category and time. Keep it simple and
           clear.
         </h2>
+
         <ul>
           <li>Register your vehicle (make, model, year)</li>
           <li>Log expenses: gas, maintenance, insurance, cosmetic upgrades</li>
           <li>View totals weekly, monthly, yearly on Overview</li>
         </ul>
-        <p className="badge">
+
+        <p className="info-badge">
           Tip: Use Vehicles page to add or edit your cars.
         </p>
       </div>
@@ -78,12 +80,13 @@ function Home() {
             </tbody>
           </table>
         )}
-        <div style={{ marginTop: 10 }}>
+        <div className="btn-container">
           <Link to="/vehicles">
-            <button className="secondary">Manage Vehicles</button>
-          </Link>{" "}
+            <button>Manage Vehicles</button>
+          </Link>
+
           <Link to="/expenses">
-            <button className="secondary">Go to Expenses</button>
+            <button>Go to Expenses</button>
           </Link>
         </div>
       </div>

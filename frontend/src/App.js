@@ -53,7 +53,7 @@ function App() {
   );
 
   return (
-    <div className="app-wrap">
+    <div className="app-container">
       <Navbar name={name} onLogout={handleLogout} />
       <div className="container">
         <Routes>

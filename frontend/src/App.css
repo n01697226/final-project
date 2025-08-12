@@ -1,49 +1,61 @@
+/* General styles */
 * {
   box-sizing: border-box;
 }
 
+:root {
+  --text-primary: #222;
+  --text-secondary: #025a4e;
+  --text-tertiary: #fff;
+  --background-primary: #efebe3;
+  --background-secondary: #f2eee8;
+  --background-tertiary: #025a4e;
+  --button-background-primary: #286b63;
+  --button-background-secondary: #025a4e;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, Arial, sans-serif;
-  background: #ece6f0;
-  color: #3f3434;
+  color: var(--text-primary);
+  line-height: 1.75;
+  font-family: "Noto Sans", sans-serif;
+  background: var(--background-primary);
+}
+
+h1,
+h2 {
+  margin: 6px 0 12px;
+  color: var(--text-secondary);
 }
 
 a {
-  color: #3f3434;
+  color: var(--text-primary);
   text-decoration: none;
 }
 
-.app-wrap {
+/* App container */
+.app-container {
   min-height: 100vh;
 }
 
 /* Navbar */
 .navbar {
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
-  background: #fff1e8;
-  border-bottom: 1px solid #8a77a5;
-  position: sticky;
-  top: 0;
+  padding: 10px 20px;
+  background: var(--background-secondary);
+  border-bottom: 2px solid #d2d2d2;
   z-index: 10;
 }
 
 .brand {
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: bold;
   letter-spacing: 1px;
-  font-size: 30px;
-  color: #473156;
-}
-
-.brand .auto {
-  color: #d6bfa3;
-}
-
-.brand .track {
-  color: #9f77bd;
+  color: var(--text-secondary);
 }
 
 .navlinks {
@@ -54,12 +66,10 @@ a {
 }
 
 .navlinks a {
-  background: transparent;
   border: none;
   padding: 0;
-  font-weight: 700;
-  font-size: 17px;
-  color: #473156;
+  font-weight: bold;
+  color: var(--text-secondary);
 }
 
 .navlinks a:hover,
@@ -68,27 +78,28 @@ a {
   text-underline-offset: 3px;
 }
 
+.brand .auto {
+  color: #d6bfa3;
+}
+
+.brand .track {
+  color: #9f77bd;
+}
+
 /* Content container */
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 25px 0;
 }
 
 /* Card */
 .card {
-  background: #fdf6f0;
-  border: 1px solid #cdb7a3;
-  border-radius: 14px;
-  padding: 16px;
+  margin: 25px 0;
+  padding: 20px;
+  background: var(--background-secondary);
+  border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  margin-bottom: 16px;
-}
-
-h1,
-h2 {
-  margin: 6px 0 12px;
-  color: #4a3d3d;
 }
 
 label {
@@ -98,7 +109,7 @@ label {
   color: #6a5858;
 }
 
-/* Inputs */
+/* Input */
 input,
 select,
 textarea {
@@ -107,7 +118,7 @@ textarea {
   border-radius: 10px;
   border: 1px solid #bca99a;
   background: #fcf9f7;
-  color: #3f3434;
+  color: #222;
 }
 
 input:focus,
@@ -118,31 +129,69 @@ textarea:focus {
   background: #f1eaf6;
 }
 
+/* Button */
 button {
-  padding: 10px 14px;
-  border-radius: 10px;
+  padding: 10px 20px;
   border: 0;
-  background: #9f77bd;
-  color: white;
-  font-weight: 700;
+  border-radius: 5px;
+  color: var(--text-tertiary);
+  background: var(--button-background-primary);
+  font-weight: semi-bold;
   cursor: pointer;
 }
 
 button:hover {
-  background: #8f69ab;
+  background: var(--button-background-secondary);
 }
 
 button.danger {
   background: #cc5c5c;
 }
 
-button.secondary {
-  background: #bda388;
-  color: #ffffff;
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-button.secondary:hover {
-  background: #cbb59a;
+.table th,
+.table td {
+  border-bottom: 1px solid #d2d2d2;
+  padding: 10px;
+  text-align: left;
+}
+
+.table td button {
+  margin: 2px 0;
+  min-width: 70px;
+  text-align: center;
+}
+
+.table th {
+  color: var(--text-primary);
+  font-weight: bold;
+}
+
+.table tr:hover {
+  background: var(--background-primary);
+}
+
+/* Home */
+.info-badge {
+  display: inline-block;
+  padding: 5px 15px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  border-radius: 5px;
+  background: #f0b4bd;
+}
+
+.btn-container {
+  margin-top: 20px;
+}
+
+.btn-container button:first-of-type {
+  margin-right: 10px;
 }
 
 /* Error message in forms */
@@ -160,42 +209,6 @@ button.secondary:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table th,
-.table td {
-  border-bottom: 1px solid #cdb7a3;
-  padding: 10px;
-  text-align: left;
-}
-
-.table td button {
-  margin: 2px 0;
-  min-width: 70px;
-  text-align: center;
-}
-
-.table th {
-  color: #6a5858;
-  font-weight: 600;
-}
-
-.table tr:hover {
-  background: #ece0f1;
-}
-
-.badge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 999px;
-  font-size: 12px;
-  background: #c8a98a;
-  border: 1px solid #b18e75;
 }
 
 /* Bars for overview */

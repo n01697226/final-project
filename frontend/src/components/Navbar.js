@@ -11,14 +11,23 @@ function Navbar(props) {
 
   return (
     <div className="navbar">
-      <a href="/" onClick={goHome} className="brand">AutoTrack</a>
+      <a href="/" onClick={goHome} className="brand">
+        AutoTrack
+      </a>
+
       <div className="navlinks">
         <Link to="/">Home</Link>
         <Link to="/vehicles">Vehicles</Link>
         <Link to="/expenses">Expenses</Link>
         <Link to="/overview">Overview</Link>
         {props.name ? (
-          <a href="#logout" onClick={function(e){ e.preventDefault(); props.onLogout(); }}>
+          <a
+            href="#logout"
+            onClick={function (e) {
+              e.preventDefault();
+              props.onLogout();
+            }}
+          >
             Logout ({props.name})
           </a>
         ) : (
