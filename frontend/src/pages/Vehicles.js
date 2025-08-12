@@ -48,6 +48,7 @@ function Vehicles() {
     <div>
       <div className="card">
         <h2>Add Vehicle</h2>
+
         <form onSubmit={add} className="row3">
           <div>
             <label>Make</label>
@@ -58,6 +59,7 @@ function Vehicles() {
               }}
             />
           </div>
+
           <div>
             <label>Model</label>
             <input
@@ -67,6 +69,7 @@ function Vehicles() {
               }}
             />
           </div>
+
           <div>
             <label>Year</label>
             <input
@@ -76,6 +79,7 @@ function Vehicles() {
               }}
             />
           </div>
+
           <div>
             <button type="submit">Add</button>
           </div>
@@ -84,6 +88,7 @@ function Vehicles() {
 
       <div className="card">
         <h2>My Vehicles</h2>
+
         <table className="table">
           <thead>
             <tr>
@@ -124,15 +129,15 @@ function Vehicles() {
                       }}
                     />
                   </td>
-                  <td>
+                  <td className="btn-container">
                     <button
-                      className="secondary"
                       onClick={function () {
                         save(item);
                       }}
                     >
                       Save
-                    </button>{" "}
+                    </button>
+
                     <button
                       className="danger"
                       onClick={function () {

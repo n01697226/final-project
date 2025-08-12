@@ -7,7 +7,7 @@
   --text-primary: #222;
   --text-secondary: #025a4e;
   --text-tertiary: #fff;
-  --background-primary: #efebe3;
+  --background-primary: #f1ece1;
   --background-secondary: #f2eee8;
   --background-tertiary: #025a4e;
   --button-background-primary: #286b63;
@@ -102,31 +102,30 @@ a {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+/* Input */
 label {
   display: block;
   margin-bottom: 6px;
   font-size: 14px;
-  color: #6a5858;
+  color: var(--text-primary);
 }
 
-/* Input */
 input,
 select,
 textarea {
   width: 100%;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid #bca99a;
-  background: #fcf9f7;
-  color: #222;
+  padding: 10px 15px;
+  color: var(--text-primary);
+  border-radius: 5px;
+  border: 1px solid #d2d2d2;
+  background: var(--background-secondary);
 }
 
 input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #9f77bd;
-  background: #f1eaf6;
+  background: var(--background-primary);
 }
 
 /* Button */
@@ -157,7 +156,7 @@ button.danger {
 .table th,
 .table td {
   border-bottom: 1px solid #d2d2d2;
-  padding: 10px;
+  padding: 20px 10px;
   text-align: left;
 }
 
@@ -211,9 +210,9 @@ button.danger {
   gap: 12px;
 }
 
-/* Bars for overview */
+/* Overview */
 .bar {
-  background: #c8a98a;
+  background: #f0b4bd;
   height: 22px;
   border-radius: 8px;
   position: relative;
@@ -223,11 +222,10 @@ button.danger {
 .bar > span {
   display: block;
   height: 100%;
-  background: #9f77bd;
+  background: var(--background-tertiary);
 }
 
 .bar-label {
-  font-size: 13px;
-  margin-bottom: 6px;
-  color: #6a5858;
+  font-size: 12px;
+  margin-bottom: 5px;
 }

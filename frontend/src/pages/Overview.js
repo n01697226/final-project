@@ -83,6 +83,7 @@ function Overview() {
   return (
     <div className="card">
       <h2>Overview</h2>
+
       <div style={{ marginBottom: 12 }}>
         <label>Range</label>
         <select
@@ -97,6 +98,7 @@ function Overview() {
           <option value="all">All Time</option>
         </select>
       </div>
+
       <BarRow label="Gas" value={totals.gas} max={max} />
       <BarRow label="Maintenance" value={totals.maintenance} max={max} />
       <BarRow label="Insurance" value={totals.insurance} max={max} />

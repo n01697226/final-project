@@ -77,6 +77,7 @@ function Expenses() {
     <div>
       <div className="card">
         <h2>Add Expense</h2>
+
         <form onSubmit={add} className="row">
           <div>
             <label>Vehicle</label>
@@ -96,6 +97,7 @@ function Expenses() {
               })}
             </select>
           </div>
+
           <div>
             <label>Category</label>
             <select
@@ -110,6 +112,7 @@ function Expenses() {
               <option value="cosmetic">Cosmetic</option>
             </select>
           </div>
+
           <div>
             <label>Amount</label>
             <input
@@ -120,6 +123,7 @@ function Expenses() {
               }}
             />
           </div>
+
           <div>
             <label>Date</label>
             <input
@@ -130,6 +134,7 @@ function Expenses() {
               }}
             />
           </div>
+
           <div style={{ gridColumn: "1 / span 2" }}>
             <label>Note</label>
             <input
@@ -139,6 +144,7 @@ function Expenses() {
               }}
             />
           </div>
+
           <div>
             <button type="submit">Add</button>
           </div>
@@ -147,6 +153,7 @@ function Expenses() {
 
       <div className="card">
         <h2>My Expenses</h2>
+
         <table className="table">
           <thead>
             <tr>
@@ -222,15 +229,15 @@ function Expenses() {
                       }}
                     />
                   </td>
-                  <td>
+                  <td className="btn-container">
                     <button
-                      className="secondary"
                       onClick={function () {
                         save(item);
                       }}
                     >
                       Save
-                    </button>{" "}
+                    </button>
+
                     <button
                       className="danger"
                       onClick={function () {
